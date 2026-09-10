@@ -265,8 +265,10 @@
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${whatsappTarget}?text=${encodedMessage}`;
       
-      // Abre o WhatsApp em nova aba para o Google ter tempo de registrar o lead
-      window.open(url, '_blank');
+      // Atraso de 500ms para garantir que o Google rastreie a conversão antes de sair da página
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 500);
     }
   </script>
 </body>
