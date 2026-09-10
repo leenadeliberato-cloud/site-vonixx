@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Distribuição Oficial Vonixx | Atendimento</title>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18442550547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18442550547');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -18,7 +28,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-  <!-- Cabeçalho Escuro (Para integrar o logo) -->
+  <!-- Cabeçalho Escuro -->
   <header class="bg-black border-b border-neutral-800 shadow-md sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-4">
@@ -70,7 +80,6 @@
       <div id="step-1" class="space-y-4">
         <h2 class="text-xl font-bold text-gray-900 text-center mb-6">Qual é o seu objetivo?</h2>
         
-        <!-- Botão Atacado -->
         <button onclick="selectGoal('Revenda / Lojista (Atacado)')" 
                 class="w-full text-left p-4 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-center gap-5 shadow-sm hover:shadow-md">
           <div class="w-24 h-24 bg-gray-50 rounded-lg flex-shrink-0 flex items-center justify-center p-2">
@@ -82,7 +91,6 @@
           </div>
         </button>
 
-        <!-- Botão Varejo -->
         <button onclick="selectGoal('Comprar produtos para uso próprio (Varejo)')" 
                 class="w-full text-left p-4 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-center gap-5 shadow-sm hover:shadow-md">
           <div class="w-24 h-24 bg-gray-50 rounded-lg flex-shrink-0 flex items-center justify-center p-2">
@@ -131,18 +139,14 @@
     </div>
   </main>
 
-  <!-- Rodapé Institucional Escuro -->
+  <!-- Rodapé Institucional -->
   <footer class="bg-black border-t border-neutral-800 py-10 text-center text-xs text-neutral-400 px-4 mt-auto">
     <div class="max-w-4xl mx-auto flex flex-col items-center space-y-4 leading-relaxed">
-      
-      <!-- Selo de Loja Protegida -->
       <img src="imagens/selo_lojaprotegida.gif" alt="Site Seguro" class="h-10 opacity-90 hover:opacity-100 transition" />
-
       <div>
         <p class="font-semibold text-neutral-300">Varejão Pereira LTDA[cite: 1] • CNPJ: 57.132.689/0001-25[cite: 1]</p>
         <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000[cite: 1]</p>
       </div>
-      
       <p class="text-[11px] text-neutral-600 pt-3 border-t border-neutral-800 mt-3 inline-block w-full max-w-lg">
         Distribuição e comercialização de produtos automotivos[cite: 1]. Todas as marcas citadas pertencem aos seus respectivos proprietários.
       </p>
@@ -150,17 +154,14 @@
   </footer>
 
   <script>
-    // Lógica do Carrossel de Banners
     let currentSlide = 0;
     const totalSlides = 3;
-    
     setInterval(() => {
       document.getElementById(`slide-${currentSlide}`).classList.add('hidden');
       currentSlide = (currentSlide + 1) % totalSlides;
       document.getElementById(`slide-${currentSlide}`).classList.remove('hidden');
-    }, 4500); // Troca a cada 4.5 segundos
+    }, 4500);
 
-    // Lógica do Funil
     const whatsappTarget = "555197722488";
     let leadData = { goal: "", detail: "", name: "", city: "" };
 
@@ -193,7 +194,6 @@
       if (goal.includes("Atacado")) {
         title.innerText = "Qual é a sua estrutura atual?";
         optionsContainer.className = "space-y-3"; 
-        
         const wholesaleOptions = [
           "Possuo Estética Automotiva / Lava Rápido",
           "Possuo Loja Física de Peças / Acessórios",
@@ -210,7 +210,6 @@
       } else {
         title.innerText = "Qual área do veículo você quer cuidar?";
         optionsContainer.className = "grid grid-cols-2 md:grid-cols-3 gap-3"; 
-
         const retailOptions = [
           { name: "Limpeza", img: "imagens/1673547176_mini_categoria_01.webp" },
           { name: "Couro", img: "imagens/1673547195_mini_categoria_02.webp" },
@@ -219,10 +218,8 @@
           { name: "Pneu", img: "imagens/1673547243_mini_categoria_05.webp" },
           { name: "Verom / Outros", img: "imagens/180_verom_675_1_11298a6522d296dbff7d4ef8fb73db65.webp", badge: "imagens/categoria_img_551_20231201144551.webp" }
         ];
-
         retailOptions.forEach(opt => {
           let badgeHtml = opt.badge ? `<img src="${opt.badge}" class="absolute top-2 right-2 w-8 h-8 z-20" alt="Novo">` : '';
-          
           optionsContainer.innerHTML += `
             <button onclick="selectDetail('${opt.name}')" class="relative overflow-hidden rounded-xl aspect-square border-2 border-transparent hover:border-gray-900 transition group shadow-md bg-black flex items-center justify-center">
               ${badgeHtml}
@@ -251,6 +248,13 @@
       leadData.name = name;
       leadData.city = city;
 
+      // Gatilho de Conversão do Google Ads
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18442550547'
+        });
+      }
+
       const message = `*NOVA SOLICITAÇÃO - VONIXX*\n\n` +
                       `*Nome:* ${leadData.name}\n` +
                       `*Cidade/UF:* ${leadData.city}\n` +
@@ -260,7 +264,9 @@
 
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${whatsappTarget}?text=${encodedMessage}`;
-      window.location.href = url;
+      
+      // Abre o WhatsApp em nova aba para o Google ter tempo de registrar o lead
+      window.open(url, '_blank');
     }
   </script>
 </body>
