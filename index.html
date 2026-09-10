@@ -6,31 +6,49 @@
   <title>Distribuição Oficial Vonixx | Atendimento</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-  <!-- Cabeçalho -->
-  <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+  <!-- Cabeçalho Escuro (Para integrar o logo) -->
+  <header class="bg-black border-b border-neutral-800 shadow-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <span class="text-3xl font-black tracking-widest text-gray-900">VONIXX</span>
-        <div class="h-6 w-px bg-gray-300"></div>
-        <span class="text-xs uppercase tracking-widest font-semibold text-gray-500 hidden sm:block">Distribuição Autorizada</span>
+        <img src="imagens/Vonixx.webp" alt="Vonixx" class="h-8 sm:h-10 object-contain" />
+        <div class="h-6 w-px bg-neutral-700"></div>
+        <span class="text-xs uppercase tracking-widest font-semibold text-neutral-400 hidden sm:block">Distribuição Autorizada</span>
       </div>
-      <div class="text-sm font-medium text-gray-500">
-        <i class="fa-solid fa-headset text-gray-900 mr-2"></i> Atendimento Especializado
+      <div class="text-xs sm:text-sm font-medium text-neutral-400">
+        <i class="fa-solid fa-headset text-white mr-2"></i> Atendimento Especializado
       </div>
     </div>
   </header>
 
+  <!-- Carrossel de Banners Promocionais -->
+  <section class="max-w-5xl mx-auto px-4 mt-6 w-full">
+    <div class="w-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative bg-white aspect-[21/9] sm:aspect-[32/9]">
+      <img id="slide-0" src="imagens/6a4b8be99c912_DESKTOP3.webp" alt="Pincéis" class="absolute inset-0 w-full h-full object-cover fade-in" />
+      <img id="slide-1" src="imagens/6a4fe0ebaf0e9_BANNER1.webp" alt="Escova Vintex" class="absolute inset-0 w-full h-full object-cover hidden fade-in" />
+      <img id="slide-2" src="imagens/6a75cdcc08e42_BANNER-ANTIFOG3.webp" alt="Glazy Anti-Fog" class="absolute inset-0 w-full h-full object-cover hidden fade-in" />
+    </div>
+  </section>
+
   <!-- Funil de Qualificação -->
-  <main class="max-w-2xl mx-auto px-4 py-12 w-full flex-grow flex flex-col justify-center">
+  <main class="max-w-3xl mx-auto px-4 py-8 w-full flex-grow flex flex-col justify-center">
     
-    <div class="text-center mb-10">
+    <div class="text-center mb-8">
       <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
         Encontre a solução ideal para você
       </h1>
-      <p class="text-gray-500 text-sm mt-3">
+      <p class="text-gray-500 text-sm mt-2">
         Selecione o seu perfil abaixo para direcionarmos o seu atendimento.
       </p>
     </div>
@@ -52,10 +70,11 @@
       <div id="step-1" class="space-y-4">
         <h2 class="text-xl font-bold text-gray-900 text-center mb-6">Qual é o seu objetivo?</h2>
         
-        <button onclick="selectGoal('Revenda / Lojista / Estética Automotiva (Atacado)')" 
-                class="w-full text-left p-6 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-start gap-5 shadow-sm hover:shadow-md">
-          <div class="p-3.5 bg-gray-100 text-gray-700 rounded-lg group-hover:bg-gray-900 group-hover:text-white transition">
-            <i class="fa-solid fa-briefcase text-xl"></i>
+        <!-- Botão Atacado -->
+        <button onclick="selectGoal('Revenda / Lojista (Atacado)')" 
+                class="w-full text-left p-4 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-center gap-5 shadow-sm hover:shadow-md">
+          <div class="w-24 h-24 bg-gray-50 rounded-lg flex-shrink-0 flex items-center justify-center p-2">
+            <img src="imagens/180_kit_sujeira_de_carro_de_mae_1213_1_7226b45baf70eb76a474c9d4db9f71de.webp" alt="Kits Atacado" class="max-w-full max-h-full object-contain group-hover:scale-110 transition" />
           </div>
           <div>
             <h3 class="font-bold text-gray-900 text-lg">Quero Comprar no Atacado</h3>
@@ -63,23 +82,24 @@
           </div>
         </button>
 
+        <!-- Botão Varejo -->
         <button onclick="selectGoal('Comprar produtos para uso próprio (Varejo)')" 
-                class="w-full text-left p-6 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-start gap-5 shadow-sm hover:shadow-md">
-          <div class="p-3.5 bg-gray-100 text-gray-700 rounded-lg group-hover:bg-gray-900 group-hover:text-white transition">
-            <i class="fa-solid fa-car-side text-xl"></i>
+                class="w-full text-left p-4 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-center gap-5 shadow-sm hover:shadow-md">
+          <div class="w-24 h-24 bg-gray-50 rounded-lg flex-shrink-0 flex items-center justify-center p-2">
+            <img src="imagens/180_kit_road_3_1379_1_4119234f8cbe2b020b89334acf533015.webp" alt="Kit Uso Próprio" class="max-w-full max-h-full object-contain group-hover:scale-110 transition" />
           </div>
           <div>
             <h3 class="font-bold text-gray-900 text-lg">Quero para Uso Próprio (Varejo)</h3>
-            <p class="text-sm text-gray-500 mt-1">Ceras, vitrificadores, shampoos e linha de limpeza para o cuidado do meu veículo.</p>
+            <p class="text-sm text-gray-500 mt-1">Ceras, shampoos e kits completos para o cuidado do meu veículo em casa.</p>
           </div>
         </button>
       </div>
 
       <!-- ETAPA 2 -->
       <div id="step-2" class="hidden space-y-4">
-        <h2 id="step-2-title" class="text-xl font-bold text-gray-900 mb-4">Detalhes do seu interesse</h2>
-        <div id="step-2-options" class="space-y-3"></div>
-        <button onclick="goToStep(1)" class="text-sm font-medium text-gray-500 hover:text-gray-900 mt-6 inline-flex items-center gap-2 transition">
+        <h2 id="step-2-title" class="text-xl font-bold text-gray-900 mb-4 text-center">Detalhes do seu interesse</h2>
+        <div id="step-2-options" class="w-full"></div>
+        <button onclick="goToStep(1)" class="text-sm font-medium text-gray-500 hover:text-gray-900 mt-6 inline-flex items-center gap-2 transition w-full justify-center">
           <i class="fa-solid fa-arrow-left"></i> Voltar etapa
         </button>
       </div>
@@ -111,18 +131,36 @@
     </div>
   </main>
 
-  <!-- Rodapé Institucional -->
-  <footer class="bg-white border-t border-gray-200 py-10 text-center text-xs text-gray-400 px-4 mt-auto">
-    <div class="max-w-4xl mx-auto space-y-2 leading-relaxed">
-      <p class="font-semibold text-gray-500">Varejão Pereira LTDA[cite: 1] • CNPJ: 57.132.689/0001-25[cite: 1]</p>
-      <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000[cite: 1]</p>
-      <p class="text-[11px] text-gray-400 pt-3 border-t border-gray-100 mt-3 inline-block">
+  <!-- Rodapé Institucional Escuro -->
+  <footer class="bg-black border-t border-neutral-800 py-10 text-center text-xs text-neutral-400 px-4 mt-auto">
+    <div class="max-w-4xl mx-auto flex flex-col items-center space-y-4 leading-relaxed">
+      
+      <!-- Selo de Loja Protegida -->
+      <img src="imagens/selo_lojaprotegida.gif" alt="Site Seguro" class="h-10 opacity-90 hover:opacity-100 transition" />
+
+      <div>
+        <p class="font-semibold text-neutral-300">Varejão Pereira LTDA[cite: 1] • CNPJ: 57.132.689/0001-25[cite: 1]</p>
+        <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000[cite: 1]</p>
+      </div>
+      
+      <p class="text-[11px] text-neutral-600 pt-3 border-t border-neutral-800 mt-3 inline-block w-full max-w-lg">
         Distribuição e comercialização de produtos automotivos[cite: 1]. Todas as marcas citadas pertencem aos seus respectivos proprietários.
       </p>
     </div>
   </footer>
 
   <script>
+    // Lógica do Carrossel de Banners
+    let currentSlide = 0;
+    const totalSlides = 3;
+    
+    setInterval(() => {
+      document.getElementById(`slide-${currentSlide}`).classList.add('hidden');
+      currentSlide = (currentSlide + 1) % totalSlides;
+      document.getElementById(`slide-${currentSlide}`).classList.remove('hidden');
+    }, 4500); // Troca a cada 4.5 segundos
+
+    // Lógica do Funil
     const whatsappTarget = "555197722488";
     let leadData = { goal: "", detail: "", name: "", city: "" };
 
@@ -154,6 +192,8 @@
 
       if (goal.includes("Atacado")) {
         title.innerText = "Qual é a sua estrutura atual?";
+        optionsContainer.className = "space-y-3"; 
+        
         const wholesaleOptions = [
           "Possuo Estética Automotiva / Lava Rápido",
           "Possuo Loja Física de Peças / Acessórios",
@@ -168,18 +208,25 @@
           `;
         });
       } else {
-        title.innerText = "Qual tipo de produto você precisa agora?";
+        title.innerText = "Qual área do veículo você quer cuidar?";
+        optionsContainer.className = "grid grid-cols-2 md:grid-cols-3 gap-3"; 
+
         const retailOptions = [
-          "Ceras, Selantes ou Vitrificadores (Proteção)",
-          "Shampoos automotivos e descontaminantes",
-          "Limpeza e revitalização interna (couro, plástico)",
-          "Compostos e boinas de polimento",
-          "Kit completo para cuidados de final de semana"
+          { name: "Limpeza", img: "imagens/1673547176_mini_categoria_01.webp" },
+          { name: "Couro", img: "imagens/1673547195_mini_categoria_02.webp" },
+          { name: "Farol", img: "imagens/1673547209_mini_categoria_03.webp" },
+          { name: "Motor", img: "imagens/1673547227_mini_categoria_04.webp" },
+          { name: "Pneu", img: "imagens/1673547243_mini_categoria_05.webp" },
+          { name: "Verom / Outros", img: "imagens/180_verom_675_1_11298a6522d296dbff7d4ef8fb73db65.webp", badge: "imagens/categoria_img_551_20231201144551.webp" }
         ];
+
         retailOptions.forEach(opt => {
+          let badgeHtml = opt.badge ? `<img src="${opt.badge}" class="absolute top-2 right-2 w-8 h-8 z-20" alt="Novo">` : '';
+          
           optionsContainer.innerHTML += `
-            <button onclick="selectDetail('${opt}')" class="w-full text-left p-4 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-900 rounded-xl text-sm font-medium text-gray-700 transition shadow-sm">
-              ${opt}
+            <button onclick="selectDetail('${opt.name}')" class="relative overflow-hidden rounded-xl aspect-square border-2 border-transparent hover:border-gray-900 transition group shadow-md bg-black flex items-center justify-center">
+              ${badgeHtml}
+              <img src="${opt.img}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100" alt="${opt.name}">
             </button>
           `;
         });
