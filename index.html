@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distribuição Oficial Vonixx | Atendimento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
+
+  <!-- Cabeçalho -->
+  <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <span class="text-3xl font-black tracking-widest text-gray-900">VONIXX</span>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <span class="text-xs uppercase tracking-widest font-semibold text-gray-500 hidden sm:block">Distribuição Autorizada</span>
+      </div>
+      <div class="text-sm font-medium text-gray-500">
+        <i class="fa-solid fa-headset text-gray-900 mr-2"></i> Atendimento Especializado
+      </div>
+    </div>
+  </header>
+
+  <!-- Funil de Qualificação -->
+  <main class="max-w-2xl mx-auto px-4 py-12 w-full flex-grow flex flex-col justify-center">
+    
+    <div class="text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
+        Encontre a solução ideal para você
+      </h1>
+      <p class="text-gray-500 text-sm mt-3">
+        Selecione o seu perfil abaixo para direcionarmos o seu atendimento.
+      </p>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="bg-white border border-gray-100 rounded-2xl p-6 sm:p-10 shadow-xl shadow-gray-200/50">
+
+      <!-- Indicador de Progresso -->
+      <div class="flex items-center justify-between mb-8 border-b border-gray-100 pb-5">
+        <span id="step-badge" class="text-xs font-bold text-gray-900 uppercase tracking-wider">Passo 1 de 3</span>
+        <div class="flex gap-2">
+          <div id="dot-1" class="w-2.5 h-2.5 rounded-full bg-gray-900 transition-all"></div>
+          <div id="dot-2" class="w-2.5 h-2.5 rounded-full bg-gray-200 transition-all"></div>
+          <div id="dot-3" class="w-2.5 h-2.5 rounded-full bg-gray-200 transition-all"></div>
+        </div>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div id="step-1" class="space-y-4">
+        <h2 class="text-xl font-bold text-gray-900 text-center mb-6">Qual é o seu objetivo?</h2>
+        
+        <button onclick="selectGoal('Revenda / Lojista / Estética Automotiva (Atacado)')" 
+                class="w-full text-left p-6 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-start gap-5 shadow-sm hover:shadow-md">
+          <div class="p-3.5 bg-gray-100 text-gray-700 rounded-lg group-hover:bg-gray-900 group-hover:text-white transition">
+            <i class="fa-solid fa-briefcase text-xl"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg">Quero Comprar no Atacado</h3>
+            <p class="text-sm text-gray-500 mt-1">Para oficinas de estética automotiva, lava-rápidos, autopeças ou revenda autônoma.</p>
+          </div>
+        </button>
+
+        <button onclick="selectGoal('Comprar produtos para uso próprio (Varejo)')" 
+                class="w-full text-left p-6 bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-900 rounded-xl transition duration-200 group flex items-start gap-5 shadow-sm hover:shadow-md">
+          <div class="p-3.5 bg-gray-100 text-gray-700 rounded-lg group-hover:bg-gray-900 group-hover:text-white transition">
+            <i class="fa-solid fa-car-side text-xl"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg">Quero para Uso Próprio (Varejo)</h3>
+            <p class="text-sm text-gray-500 mt-1">Ceras, vitrificadores, shampoos e linha de limpeza para o cuidado do meu veículo.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div id="step-2" class="hidden space-y-4">
+        <h2 id="step-2-title" class="text-xl font-bold text-gray-900 mb-4">Detalhes do seu interesse</h2>
+        <div id="step-2-options" class="space-y-3"></div>
+        <button onclick="goToStep(1)" class="text-sm font-medium text-gray-500 hover:text-gray-900 mt-6 inline-flex items-center gap-2 transition">
+          <i class="fa-solid fa-arrow-left"></i> Voltar etapa
+        </button>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div id="step-3" class="hidden space-y-5">
+        <h2 class="text-xl font-bold text-gray-900 mb-2">Quase lá! Como podemos chamar você?</h2>
+        <p class="text-sm text-gray-500 mb-6">Insira seus dados para iniciarmos o atendimento direto no WhatsApp.</p>
+        
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wide text-gray-700 mb-2">Seu Nome / Empresa</label>
+          <input type="text" id="lead-name" placeholder="Ex: Rodrigo Silva" class="w-full bg-gray-50 border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 focus:outline-none rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 transition" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wide text-gray-700 mb-2">Sua Cidade / Estado</label>
+          <input type="text" id="lead-city" placeholder="Ex: Porto Alegre / RS" class="w-full bg-gray-50 border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 focus:outline-none rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 transition" />
+        </div>
+
+        <button onclick="finishFunnel()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition duration-200 mt-4 shadow-lg shadow-green-600/20 text-lg">
+          <i class="fa-brands fa-whatsapp text-xl"></i> Iniciar Atendimento
+        </button>
+
+        <button onclick="goToStep(2)" class="text-sm font-medium text-gray-500 hover:text-gray-900 mt-4 block text-center w-full transition">
+          Voltar e alterar seleção
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Rodapé Institucional -->
+  <footer class="bg-white border-t border-gray-200 py-10 text-center text-xs text-gray-400 px-4 mt-auto">
+    <div class="max-w-4xl mx-auto space-y-2 leading-relaxed">
+      <p class="font-semibold text-gray-500">Varejão Pereira LTDA[cite: 1] • CNPJ: 57.132.689/0001-25[cite: 1]</p>
+      <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000[cite: 1]</p>
+      <p class="text-[11px] text-gray-400 pt-3 border-t border-gray-100 mt-3 inline-block">
+        Distribuição e comercialização de produtos automotivos[cite: 1]. Todas as marcas citadas pertencem aos seus respectivos proprietários.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const whatsappTarget = "555197722488";
+    let leadData = { goal: "", detail: "", name: "", city: "" };
+
+    function goToStep(step) {
+      document.getElementById("step-1").classList.add("hidden");
+      document.getElementById("step-2").classList.add("hidden");
+      document.getElementById("step-3").classList.add("hidden");
+
+      document.getElementById(`step-${step}`).classList.remove("hidden");
+      document.getElementById("step-badge").innerText = `Passo ${step} de 3`;
+
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (i <= step) {
+          dot.classList.add("bg-gray-900");
+          dot.classList.remove("bg-gray-200");
+        } else {
+          dot.classList.remove("bg-gray-900");
+          dot.classList.add("bg-gray-200");
+        }
+      }
+    }
+
+    function selectGoal(goal) {
+      leadData.goal = goal;
+      const optionsContainer = document.getElementById("step-2-options");
+      const title = document.getElementById("step-2-title");
+      optionsContainer.innerHTML = "";
+
+      if (goal.includes("Atacado")) {
+        title.innerText = "Qual é a sua estrutura atual?";
+        const wholesaleOptions = [
+          "Possuo Estética Automotiva / Lava Rápido",
+          "Possuo Loja Física de Peças / Acessórios",
+          "Trabalho de forma autônoma e quero revender",
+          "Empresa em fase de abertura / Novo negócio"
+        ];
+        wholesaleOptions.forEach(opt => {
+          optionsContainer.innerHTML += `
+            <button onclick="selectDetail('${opt}')" class="w-full text-left p-4 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-900 rounded-xl text-sm font-medium text-gray-700 transition shadow-sm">
+              ${opt}
+            </button>
+          `;
+        });
+      } else {
+        title.innerText = "Qual tipo de produto você precisa agora?";
+        const retailOptions = [
+          "Ceras, Selantes ou Vitrificadores (Proteção)",
+          "Shampoos automotivos e descontaminantes",
+          "Limpeza e revitalização interna (couro, plástico)",
+          "Compostos e boinas de polimento",
+          "Kit completo para cuidados de final de semana"
+        ];
+        retailOptions.forEach(opt => {
+          optionsContainer.innerHTML += `
+            <button onclick="selectDetail('${opt}')" class="w-full text-left p-4 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-900 rounded-xl text-sm font-medium text-gray-700 transition shadow-sm">
+              ${opt}
+            </button>
+          `;
+        });
+      }
+      goToStep(2);
+    }
+
+    function selectDetail(detail) {
+      leadData.detail = detail;
+      goToStep(3);
+    }
+
+    function finishFunnel() {
+      const name = document.getElementById("lead-name").value.trim();
+      const city = document.getElementById("lead-city").value.trim();
+
+      if (!name || !city) {
+        alert("Por favor, preencha o seu nome e cidade para continuarmos.");
+        return;
+      }
+
+      leadData.name = name;
+      leadData.city = city;
+
+      const message = `*NOVA SOLICITAÇÃO - VONIXX*\n\n` +
+                      `*Nome:* ${leadData.name}\n` +
+                      `*Cidade/UF:* ${leadData.city}\n` +
+                      `*Perfil:* ${leadData.goal}\n` +
+                      `*Interesse Principal:* ${leadData.detail}\n\n` +
+                      `Olá! Concluí o formulário e gostaria de dar sequência ao atendimento.`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://wa.me/${whatsappTarget}?text=${encodedMessage}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
