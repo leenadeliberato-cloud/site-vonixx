@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Google Tag Manager (Instalado o mais alto possível no head) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TJ4ZG6KZ');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Distribuição Oficial Vonixx | Atendimento</title>
+
+  <!-- Google tag (gtag.js) - Movida para o Head conforme exigência do Google -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18442550547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18442550547');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -18,6 +36,11 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
+  <!-- Google Tag Manager (noscript) - Imediatamente após a tag body -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ4ZG6KZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- Cabeçalho Escuro -->
   <header class="bg-black border-b border-neutral-800 shadow-md sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -28,34 +51,6 @@
       </div>
       <div class="text-xs sm:text-sm font-medium text-neutral-400">
         <i class="fa-solid fa-headset text-white mr-2"></i> Atendimento Especializado
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18442550547">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18442550547');
-</script>
-
-  <!-- Event snippet for Inscrição conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18442550547/D707COrltvMcEJP6i9pE',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
       </div>
     </div>
   </header>
@@ -162,11 +157,11 @@ function gtag_report_conversion(url) {
     <div class="max-w-4xl mx-auto flex flex-col items-center space-y-4 leading-relaxed">
       <img src="imagens/selo_lojaprotegida.gif" alt="Site Seguro" class="h-10 opacity-90 hover:opacity-100 transition" />
       <div>
-        <p class="font-semibold text-neutral-300">Varejão Pereira LTDA[cite: 1] • CNPJ: 57.132.689/0001-25[cite: 1]</p>
-        <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000[cite: 1]</p>
+        <p class="font-semibold text-neutral-300">Varejão Pereira LTDA • CNPJ: 57.132.689/0001-25</p>
+        <p>Av. Prof. Assis Gonçalves, 0890, Centro - Canavieiras / BA - CEP: 45.860-000</p>
       </div>
       <p class="text-[11px] text-neutral-600 pt-3 border-t border-neutral-800 mt-3 inline-block w-full max-w-lg">
-        Distribuição e comercialização de produtos automotivos[cite: 1]. Todas as marcas citadas pertencem aos seus respectivos proprietários.
+        Distribuição e comercialização de produtos automotivos. Todas as marcas citadas pertencem aos seus respectivos proprietários.
       </p>
     </div>
   </footer>
@@ -266,10 +261,10 @@ function gtag_report_conversion(url) {
       leadData.name = name;
       leadData.city = city;
 
-      // Gatilho EXATO de Conversão do Google Ads
+      // Gatilho EXATO de Conversão do Google Ads com o ID atualizado (D707)
       if (typeof gtag !== 'undefined') {
         gtag('event', 'conversion', {
-            'send_to': 'AW-18442550547/D7O7COrltvMcEJP6i9pE'
+            'send_to': 'AW-18442550547/D707COrltvMcEJP6i9pE'
         });
       }
 
@@ -283,7 +278,6 @@ function gtag_report_conversion(url) {
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${whatsappTarget}?text=${encodedMessage}`;
       
-      // Atraso de 500ms para garantir que o Google rastreie a conversão antes de sair da página
       setTimeout(() => {
         window.open(url, '_blank');
       }, 500);
